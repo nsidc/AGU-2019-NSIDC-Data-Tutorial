@@ -1,1 +1,1 @@
-# AGU-Fall-Meeting-2019-NSIDC-Data-Tutorial
+# AGU-2019-NSIDC-Data-Tutorial
