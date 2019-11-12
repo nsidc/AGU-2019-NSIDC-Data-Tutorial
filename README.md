@@ -6,7 +6,7 @@ Amy Steiker, Walt Meier: National Snow and Ice Data Center Distributed Active Ar
 
 ## Authors
 
-Amy Steiker, Bruce Wallin, Walt Meier: National Snow and Ice Data Center Distributed Active Archive Center (NSIDC DAAC)
+Amy Steiker, Bruce Wallin, Andy Barrett, Walt Meier: National Snow and Ice Data Center Distributed Active Archive Center (NSIDC DAAC)
 
 ## Summary
 
@@ -14,10 +14,10 @@ The NSIDC DAAC provides a wide variety of remote sensing data on the cryosphere,
 
 ## Key Learning Objectives
 
-1) Learn the basics of Jupyter Notebooks: Why and when to use them, how to access and interact with them today, and how to access and interact with them outside of the tutorial.  
+1) Become familiar with NSIDC resources, including user support documents, data access options, and data subsetting services.
 
-2) Become familiar with NSIDC resources, including user support documents, data access options, and data customization services.
+2) Learn how to access and subset data programmatically using the NSIDC DAAC's API service. 
 
-3) Learn about data from the new NASA ICESat-2 mission/
+3) Learn about the coverage, resolution, and structure of sea ice data from new NASA ICESat-2 mission.
 
-3) Interact with NSIDC DAAC data using basic Python science libraries: Learn how to access, visualize, and analyze data across various remote sensing data levels, formats, and structures.
+3) Interact with ICESat-2 and MODIS data using basic Python science libraries to visualize, filter, and plot concurrent data.
