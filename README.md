@@ -10,12 +10,14 @@ Amy Steiker, Bruce Wallin, Walt Meier: National Snow and Ice Data Center Distrib
 
 ## Summary
 
-The NASA National Snow and Ice Data Center (NSIDC) Distributed Active Archive Center (DAAC) distributes a wide variety of remote sensing data on the cryosphere. These data sets provide unique measurement variables along with disparate formats, grids, coverage, and resolution, posing unique challenges when attempting to harmonize and analyze data across these varying products. This tutorial will address some of these challenges by providing hands-on guidance to accessing, visualizing, transforming, and unifying data from the NSIDC DAAC for land and sea ice applications. 
+The NSIDC DAAC provides a wide variety of remote sensing data on the cryosphere, often with disparate coverage and resolution. This tutorial will demonstrate our data discovery, access, and subsetting services, along with basic open source resources used to harmonize and analyze data across these diverse products. The tutorial will be presented as a series of Python-based Jupyter Notebooks, focusing on sea ice height and ice surface temperature data from NASA’s ICESat-2 and MODIS missions, respectively, to characterize Arctic sea ice. No coding experience or computing prerequisites are required, though some familiarity with Python and Jupyter Notebooks is recommended.
 
 ## Key Learning Objectives
 
-1) Become familiar with NSIDC resources, including user support documents, data access options, and data customization services.
+1) Learn the basics of Jupyter Notebooks: Why and when to use them, how to access and interact with them today, and how to access and interact with them outside of the tutorial.  
 
-2) Learn the basics of Jupyter Notebooks: Why and when to use them, how to access and interact with them today, how to access and interact with them outside of the tutorial. 
+2) Become familiar with NSIDC resources, including user support documents, data access options, and data customization services.
 
-3) Interact with NSIDC DAAC data using fundamental Python science libraries: Learn how to access, visualize, and analyze data across various remote sensing data levels, formats, and structures.
+3) Learn about data from the new NASA ICESat-2 mission/
+
+3) Interact with NSIDC DAAC data using basic Python science libraries: Learn how to access, visualize, and analyze data across various remote sensing data levels, formats, and structures.
