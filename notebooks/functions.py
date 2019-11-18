@@ -20,6 +20,8 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 import geopandas as gpd
+from datetime import datetime, timedelta
+import pyproj
 
 def print_cmr_metadata(entry, fields=['dataset_id', 'version_id']):
     '''This is a docstring.
@@ -99,3 +101,37 @@ def convert_to_gdf(df):
     )
 
     return gdf
+
+
+def convert_delta_time(delta_time):
+    '''
+    Convert ICESat-2 'delta_time' parameter to UTC datetime
+    '''
+    EPOCH = datetime(2018, 1, 1, 0, 0, 0)
+    
+    utc_datetime = EPOCH + timedelta(seconds=delta_time)
+
+    return utc_datetime
+
+def compute_along_track_distance(df, ref_point=None):
+    '''
+    Calculate along track distance for each point, using 'ref_point' as reference.
+    Assumes single homogeneous beam profile.
+
+    Arguments:
+        df: DataFrame with icesat-2 data
+        ref_point: point to use as reference for distance (defaults to first point in dataframe)
+
+    Returuns:
+        distance: series of calculated distances along track
+    '''
+    geod = pyproj.Geod(ellps='WGS84')
+    if ref_point is None:
+        ref_point = df.iloc[0][['longitude', 'latitude']]
+
+    def calc_distance(row):
+        return geod.line_length(*zip(ref_point, row[['longitude', 'latitude']]))
+
+    distance = df.apply(calc_distance, axis=1)
+
+    return distance
