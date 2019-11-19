@@ -22,16 +22,51 @@ import numpy as np
 import geopandas as gpd
 from datetime import datetime, timedelta
 import pyproj
+import requests
+import json
 
 def print_cmr_metadata(entry, fields=['dataset_id', 'version_id']):
-    '''This is a docstring.
-
+    '''
     Prints metadata from query to CMR collections.json
 
     entry - Metadata entry for a dataset
     fields - list of metdata fields to print
     '''
     print(', '.join([f"{field}: {entry[field]}" for field in fields]))
+
+
+def print_granule_num(data_dict):
+    '''
+    Prints number of granules based on inputted data set short name, version, bounding box, and temporal range. Queries the CMR and pages over results.
+    
+    data_dict - a dictionary with the following CMR keywords:
+    'short_name',
+    'version',
+    'bounding_box',
+    'temporal'
+    '''
+    #set CMR API endpoint for granule search
+    granule_search_url = 'https://cmr.earthdata.nasa.gov/search/granules'
+    
+    #add page size and page num to dictionary
+    data_dict['page_size'] = 100
+    data_dict['page_num'] = 1
+    
+    granules = []
+    headers={'Accept': 'application/json'}
+    while True:
+        response = requests.get(granule_search_url, params=data_dict, headers=headers)
+        results = json.loads(response.content)
+
+        if len(results['feed']['entry']) == 0:
+            # Out of results, so break out of loop
+            break
+
+        # Collect results and increment page_num
+        granules.extend(results['feed']['entry'])
+        data_dict['page_num'] += 1
+    print(data_dict['short_name'], 'version', data_dict['version'], 'granule count:')
+    return len(granules)
 
 
     
