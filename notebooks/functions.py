@@ -24,6 +24,7 @@ from datetime import datetime, timedelta
 import pyproj
 import requests
 import json
+from statistics import mean
 
 def print_cmr_metadata(entry, fields=['dataset_id', 'version_id']):
     '''
@@ -35,7 +36,7 @@ def print_cmr_metadata(entry, fields=['dataset_id', 'version_id']):
     print(', '.join([f"{field}: {entry[field]}" for field in fields]))
 
 
-def print_granule_num(data_dict):
+def granule_info(data_dict):
     '''
     Prints number of granules based on inputted data set short name, version, bounding box, and temporal range. Queries the CMR and pages over results.
     
@@ -45,10 +46,10 @@ def print_granule_num(data_dict):
     'bounding_box',
     'temporal'
     '''
-    #set CMR API endpoint for granule search
+    # set CMR API endpoint for granule search
     granule_search_url = 'https://cmr.earthdata.nasa.gov/search/granules'
     
-    #add page size and page num to dictionary
+    # add page size and page num to dictionary
     data_dict['page_size'] = 100
     data_dict['page_num'] = 1
     
@@ -65,9 +66,12 @@ def print_granule_num(data_dict):
         # Collect results and increment page_num
         granules.extend(results['feed']['entry'])
         data_dict['page_num'] += 1
-    print(data_dict['short_name'], 'version', data_dict['version'], 'granule count:')
+    
+    # calculate granule size 
+    granule_sizes = [float(granule['granule_size']) for granule in granules]
+    print('There are', len(granules), 'granules of', data_dict['short_name'], 'version', data_dict['version'], 'over my area and time of interest.')
+    print(f'The average size of each granule is {mean(granule_sizes):.2f} MB and the total size of all {len(granules)} granules is {sum(granule_sizes):.2f} MB')
     return len(granules)
-
 
     
 def load_icesat2_as_dataframe(filepath, VARIABLES):

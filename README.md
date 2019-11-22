@@ -6,7 +6,7 @@ Amy Steiker, Walt Meier: National Snow and Ice Data Center Distributed Active Ar
 
 ## Authors
 
-Amy Steiker, Bruce Wallin, Andy Barrett, Walt Meier: National Snow and Ice Data Center Distributed Active Archive Center (NSIDC DAAC)
+Amy Steiker, Bruce Wallin, Andy Barrett, Walt Meier, Marin Klinger: National Snow and Ice Data Center Distributed Active Archive Center (NSIDC DAAC)
 
 ## Summary
 
