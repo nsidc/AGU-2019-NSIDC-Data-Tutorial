@@ -10,7 +10,7 @@ Amy Steiker, Bruce Wallin, Andy Barrett, Walt Meier, Marin Klinger: National Sno
 
 ## Summary
 
-The NSIDC DAAC provides a wide variety of remote sensing data on the cryosphere, often with disparate coverage and resolution. This tutorial will demonstrate our data discovery, access, and subsetting services, along with basic open source resources used to harmonize and analyze data across these diverse products. The tutorial will be presented as a series of Python-based Jupyter Notebooks, focusing on sea ice height and ice surface temperature data from NASA’s ICESat-2 and MODIS missions, respectively, to characterize Arctic sea ice. No coding experience or computing prerequisites are required, though some familiarity with Python and Jupyter Notebooks is recommended.
+The NSIDC DAAC provides a wide variety of remote sensing data on the cryosphere, often with disparate coverage and resolution. This tutorial will demonstrate our data discovery, access, and subsetting services, along with basic open source resources used to harmonize and analyze data across these diverse products. The tutorial will be presented as a series of Python-based Jupyter Notebooks, focusing on sea ice height and ice surface temperature data from NASA’s ICESat-2 and MODIS missions, respectively, to characterize Arctic sea ice. No coding experience or computing prerequisites are required, though some familiarity with Python and Jupyter Notebooks is recommended. The in-person tutorial utilized a JupyterHub environment that was preconfigured with the dependencies needed to run each operation in the series of notebooks. For those of you interested in running the notebooks outside of the in-person event, see below for details on how to run using Binder and Conda. 
 
 ## Key Learning Objectives
 
@@ -21,3 +21,32 @@ The NSIDC DAAC provides a wide variety of remote sensing data on the cryosphere,
 3) Learn about the coverage, resolution, and structure of sea ice data from new NASA ICESat-2 mission.
 
 3) Interact with ICESat-2 and MODIS data using basic Python science libraries to visualize, filter, and plot concurrent data.
+
+
+## Usage with Binder
+
+[binder button]
+
+The Binder button above allows you to explore and run the notebook in a shared cloud computing environment without the need to install dependencies on your local machine. Note that this option will not directly download data to your computer; instead the data will be downloaded to the cloud environment. 
+
+## Usage with Conda
+
+Install miniconda3 (Python 3.7) for your platform from https://docs.conda.io/en/latest/miniconda.html
+
+Download the [AGU-2019-NSIDC-Data-Tutorial](https://github.com/nsidc/AGU-2019-NSIDC-Data-Tutorial) repository from Github by clicking the green 'Clone or Download' button located at the top right of the repository page.
+
+Unzip the file, and open a command line or terminal window in the AGU-2019-NSIDC-Data-Tutorial folder's location.
+
+From a command line or terminal window, install the required environment with the following command:
+
+conda env create -f binder/environment.yml
+
+you should now see that the dependencies were installed and our environment is ready to be used.
+
+Activate the environment with source activate icepick or conda activate icepick
+
+Launch the notebook locally with the following command:
+
+jupyter lab
+
+This should open a browser window displaying your current working directory contents. Navigate to the notebooks folder and click on the NSIDC DAAC Customize and Access Data Tutorial.ipynb file. You can now interact with the notebook to explore and access data.
