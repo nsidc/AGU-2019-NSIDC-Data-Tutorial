@@ -31,6 +31,7 @@ import pprint
 import shutil
 import zipfile
 import io
+import time
 
 
 def print_cmr_metadata(entry, fields=['dataset_id', 'version_id']):
