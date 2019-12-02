@@ -136,6 +136,7 @@ def print_service_options(data_dict, response):
         if len(proj_vals) > 0 : 
             print('Reprojection to the following options:', proj_vals)
 
+    
 
             
 def request_data(param_dict,session):
@@ -218,7 +219,7 @@ def request_data(param_dict,session):
 
         #Order can either complete, complete_with_errors, or fail:
         # Provide complete_with_errors error message:
-        if status == 'complete_with_errors' or status == 'failed':
+        if status == 'failed':
             messagelist = []
             for message in loop_root.findall("./processInfo/"):
                 messagelist.append(message.text)
@@ -379,5 +380,3 @@ def compute_along_track_distance(df, ref_point=None):
 
     return distance
 
-
-#Resolution: 150 signal photons are accumulated, which changes with varying surface types up to a maximum of 150 meters, and the number of available sea surface height segments to derive a reference sea surface. The along track length of the of height segments is stored in gt[x]/sea_ice_segments/heights/height_segment_length_seg
