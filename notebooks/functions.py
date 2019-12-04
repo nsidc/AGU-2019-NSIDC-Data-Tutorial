@@ -357,26 +357,53 @@ def convert_delta_time(delta_time):
 
     return utc_datetime
 
-def compute_along_track_distance(df, ref_point=None):
+
+def compute_distance(df):
     '''
-    Calculate along track distance for each point, using 'ref_point' as reference.
-    Assumes single homogeneous beam profile.
+    Calculates along track distance for each point within the 'gt1l', 'gt2l', and 'gt3l' beams, beginning with first beam index. 
 
     Arguments:
         df: DataFrame with icesat-2 data
-        ref_point: point to use as reference for distance (defaults to first point in dataframe)
 
-    Returuns:
-        distance: series of calculated distances along track
+    Returns:
+        add_dist added as new column to initial df
     '''
-    geod = pyproj.Geod(ellps='WGS84')
-    if ref_point is None:
-        ref_point = df.iloc[0][['longitude', 'latitude']]
 
-    def calc_distance(row):
-        return geod.line_length(*zip(ref_point, row[['longitude', 'latitude']]))
+    beam_1 = df[df['beam'] == 'gt1l']
+    beam_2 = df[df['beam'] == 'gt2l']
+    beam_3 = df[df['beam'] == 'gt3l']
 
-    distance = df.apply(calc_distance, axis=1)
+    add_dist = []
+    add_dist.append(beam_1.height_segment_length_seg.values[0])
 
-    return distance
+    for i in range(1, len(beam_1)): 
+        add_dist.append(add_dist[i-1] + beam_1.height_segment_length_seg.values[i])
 
+    add_dist_se = pd.Series(add_dist)
+    beam_1.insert(loc=0, column='add_dist', value=add_dist_se.values)
+    beam_1
+
+    add_dist = []
+    add_dist.append(beam_2.height_segment_length_seg.values[0])
+
+    for i in range(1, len(beam_2)): 
+        add_dist.append(add_dist[i-1] + beam_2.height_segment_length_seg.values[i])
+
+    add_dist_se = pd.Series(add_dist)
+    beam_2.insert(loc=0, column='add_dist', value=add_dist_se.values)
+    beam_2
+
+    add_dist = []
+    add_dist.append(beam_3.height_segment_length_seg.values[0])
+
+    for i in range(1, len(beam_3)): 
+        add_dist.append(add_dist[i-1] + beam_3.height_segment_length_seg.values[i])
+
+    add_dist_se = pd.Series(add_dist)
+    beam_3.insert(loc=0, column='add_dist', value=add_dist_se.values)
+    beam_3
+
+    beams = [beam_1,beam_2,beam_3]
+    df = pd.concat(beams,ignore_index=True)
+    
+    return df
