@@ -32,7 +32,7 @@ The Binder button above allows you to explore and run the notebook in a shared c
 
 ## Usage with Conda
 
-Install miniconda3 (Python 3.7) for your platform from https://docs.conda.io/en/latest/miniconda.html
+Install miniconda3 (Python 3.7) for your platform from [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
 
 Download the [AGU-2019-NSIDC-Data-Tutorial](https://github.com/nsidc/AGU-2019-NSIDC-Data-Tutorial) repository from Github by clicking the green 'Clone or Download' button located at the top right of the repository page.
 
@@ -40,14 +40,25 @@ Unzip the file, and open a command line or terminal window in the AGU-2019-NSIDC
 
 From a command line or terminal window, install the required environment with the following command:
 
+```bash
 conda env create -f binder/environment.yml
+```
 
 you should now see that the dependencies were installed and our environment is ready to be used.
 
-Activate the environment with source activate icepick or conda activate icepick
+Activate the environment with 
+
+```
+conda activate tutorial
+```
 
 Launch the notebook locally with the following command:
 
+```bash
 jupyter lab
+```
 
 This should open a browser window displaying your current working directory contents. Navigate to the notebooks folder and click on the NSIDC DAAC Customize and Access Data Tutorial.ipynb file. You can now interact with the notebook to explore and access data.
+
+
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
