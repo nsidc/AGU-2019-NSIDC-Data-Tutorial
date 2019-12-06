@@ -1,7 +1,6 @@
 # AGU-2019-NSIDC-Data-Tutorial
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nsidc/AGU-2019-NSIDC-Data-Tutorial/master?urlpath=tree/notebooks)
-
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nsidc/AGU-2019-NSIDC-Data-Tutorial/master?urlpath=lab/tree/notebooks)
 ## Presenters
 
 Amy Steiker, Walt Meier: National Snow and Ice Data Center Distributed Active Archive Center (NSIDC DAAC)
