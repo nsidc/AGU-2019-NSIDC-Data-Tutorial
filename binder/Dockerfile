@@ -1,5 +1,16 @@
 FROM jupyter/base-notebook:python-3.7.3
 
+USER root
+
+# Install all OS dependencies for notebook server that starts but lacks all
+# features (e.g., download as all possible file formats)
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update \
+ && apt-get install -yq --no-install-recommends git \
+ && apt-get clean  && apt autoremove && rm -rf /var/lib/apt
+
+USER $NB_UID
+
 RUN conda config --add channels conda-forge
 
 RUN conda install -c conda-forge --quiet --yes --freeze-installed \
