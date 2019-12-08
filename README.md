@@ -3,11 +3,11 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nsidc/AGU-2019-NSIDC-Data-Tutorial/master?urlpath=lab/tree/notebooks)
 ## Presenters
 
-Amy Steiker, Walt Meier: National Snow and Ice Data Center Distributed Active Archive Center (NSIDC DAAC)
+Amy Steiker, Walt Meier: NASA National Snow and Ice Data Center Distributed Active Archive Center (NSIDC DAAC)
 
 ## Authors
 
-Amy Steiker, Bruce Wallin, Andy Barrett, Walt Meier, Luis Lopez, Marin Klinger: National Snow and Ice Data Center Distributed Active Archive Center (NSIDC DAAC)
+Amy Steiker, Bruce Wallin, Andy Barrett, Walt Meier, Luis Lopez, Marin Klinger: NASA National Snow and Ice Data Center Distributed Active Archive Center (NSIDC DAAC)
 
 ## Summary
 
@@ -25,8 +25,6 @@ The NSIDC DAAC provides a wide variety of remote sensing data on the cryosphere,
 
 
 ## Usage with Binder
-
-[binder button]
 
 The Binder button above allows you to explore and run the notebook in a shared cloud computing environment without the need to install dependencies on your local machine. Note that this option will not directly download data to your computer; instead the data will be downloaded to the cloud environment. 
 
@@ -58,7 +56,7 @@ Launch the notebook locally with the following command:
 jupyter lab
 ```
 
-This should open a browser window displaying your current working directory contents. Navigate to the notebooks folder and click on the NSIDC DAAC Customize and Access Data Tutorial.ipynb file. You can now interact with the notebook to explore and access data.
+This should open a browser window with the JupyterLab IDE, showing your current working directory on the left-hand navigation. Navigate to the notebooks folder and click on Introduction.ipynb file to get started.
 
 
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
