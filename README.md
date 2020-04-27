@@ -1,6 +1,6 @@
 # AGU-2019-NSIDC-Data-Tutorial
 
-## **IMPORTANT**: This repository contains material presented at AGU 2019 and further development will continue at https://github.com/nsidc/NSIDC-Data-Tutorial
+## **IMPORTANT**: This repository contains material presented at AGU 2019 and further development will continue at https://github.com/nsidc/NSIDC-Data-Tutorials
 
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nsidc/AGU-2019-NSIDC-Data-Tutorial/master?urlpath=lab/tree/notebooks)
